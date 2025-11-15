@@ -1,6 +1,6 @@
 # Jeu ±123D (Version 3)
 
-Un projet universitaire implémentant le jeu de plateau **±123D** en Java. Ce jeu met en compétition deux joueurs (Max et Min) sur un plateau linéaire, où l'objectif principal est d'atteindre le drapeau ou d'empêcher l'adversaire de jouer.
+Un projet implémentant le jeu de plateau **±123D** en Java. Ce jeu met en compétition deux joueurs (Max et Min) sur un plateau linéaire, où l'objectif principal est d'atteindre le drapeau ou d'empêcher l'adversaire de jouer.
 
 ## 🚀 Fonctionnalités
 
@@ -18,7 +18,7 @@ Le projet est principalement constitué de fichiers Java :
 
 | Fichier | Description |
 | :--- | :--- |
-| `Plateau.java` | **(Non fourni, mais essentiel)** Contient la logique principale du jeu, l'état du plateau, et la gestion des tours/actions. |
+| `Plateau.java` | Contient la logique principale du jeu, l'état du plateau, et la gestion des tours/actions. |
 | **`JeuGUI.java`** | Point d'entrée pour la version avec interface graphique (GUI). Implémente également le joueur humain pour la GUI. |
 | **`JeuConsole.java`** | Point d'entrée pour la version en ligne de commande. |
 | **`AfficheurPlateau.java`** | Composant Swing pour le rendu graphique du plateau de jeu. |
@@ -29,7 +29,7 @@ Le projet est principalement constitué de fichiers Java :
 | **`JoueurAleatoire.java`** | Implémentation d'un joueur effectuant des coups aléatoires. |
 | **`JoueurConsole.java`** | Implémentation du joueur pour l'interface console (lecture/écriture sur `stdin`/`stdout`). |
 | **`JoueurInterfaceCmd.java`**| Gère l'interface avec un joueur externe lancé comme un processus en ligne de commande. |
-| **`JoueurInterfaceSocket.java`**| **(Non fourni, mais mentionné)** Gère l'interface avec un joueur externe via une connexion réseau (socket). |
+| **`JoueurInterfaceSocket.java`**| Gère l'interface avec un joueur externe via une connexion réseau (socket). |
 
 ## 🛠️ Compilation et Exécution
 
