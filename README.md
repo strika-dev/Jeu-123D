@@ -1,6 +1,47 @@
-# Jeu ±123D (Version 3)
+## 🎮 Les Règles du Jeu ±123D
 
-Un projet implémentant le jeu de plateau **±123D** en Java. Ce jeu met en compétition deux joueurs (Max et Min) sur un plateau linéaire, où l'objectif principal est d'atteindre le drapeau ou d'empêcher l'adversaire de jouer.
+Le jeu **±123D** est un jeu de plateau pour deux joueurs, généralement appelés **Max (Joueur A, bleu)** et **Min (Joueur B, rouge)**, joué sur un plateau linéaire de taille configurable.
+
+### 1. Le Plateau et l'Objectif
+
+* **Plateau** : Séquence de cases numérotées, de `0` à `N-1`.
+* **Positions** : Les joueurs commencent à la case 0.
+* **Drapeau** : Au début du jeu, le drapeau se trouve à la dernière case, le joueur qui le ramène à la case 0 gagne la partie
+* **Cases Brûlées** : Les cases quittées par un joueur sont marquées comme "brûlées et deviennent inaccessibles.
+
+* **Objectif** : Atteindre et déplacer le drapeau à la case 0, ou forcer l'adversaire à ne plus pouvoir effectuer de coup valide.
+
+### 2. Le Déroulement du Tour
+
+Les joueurs jouent à tour de rôle (Max commence). À son tour, un joueur doit effectuer **une seule** des deux actions suivantes :
+
+#### A. Action de Mouvement (Déplacement)
+
+Le joueur se déplace de sa position actuelle vers une nouvelle case.
+
+* **Déplacements Permis** : **±1, ±2 ou ±3** cases.
+* **Conditions** :
+    1.  La nouvelle position doit être **dans les limites du plateau**.
+    2.  La nouvelle position ne doit **pas être une case brûlée** (`x`).
+* **Conséquence** : La case que le joueur vient de **quitter** est marquée comme **brûlée** (`x`).
+
+#### B. Action de Déplacement du Drapeau (Action "D")
+
+Le joueur peut déplacer le drapeau vers une case libre à une distance de **±D**, où **D > 3** (ex: +4, -5, +9, etc.).
+
+* **Conditions** :
+    1.  La nouvelle position du drapeau doit être **dans les limites du plateau**.
+    2.  La nouvelle position ne doit **pas être une case brûlée** (`x`).
+    3.  La nouvelle position doit **être différente de la position des deux joueurs**.
+* **Conséquence** :
+    1.  La case que le joueur vient de **quitter** est marquée comme **brûlée** (`x`).
+    2.  Le drapeau est déplacé à la nouvelle position.
+
+### 3. Conditions de Fin de Partie
+
+* **Victoire par Mouvement du Drapeau :** Un joueur atteint la case du drapeau et le déplace avec succès à la case 0 lors de son tour. Ce joueur **gagne immédiatement**.
+* **Victoire par Blocage :** Un joueur ne peut effectuer **aucune** action valide (mouvement ou déplacement du drapeau). Ce joueur **perd la partie**, et l'adversaire gagne.
+
 
 ## 🚀 Fonctionnalités
 
