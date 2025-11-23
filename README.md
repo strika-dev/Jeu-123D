@@ -1,89 +1,96 @@
-## 🎮 Les Règles du Jeu ±123D
+## 🎮 ±123D Game Rules
 
-Le jeu **±123D** est un jeu de plateau pour deux joueurs, généralement appelés **Max (Joueur A, bleu)** et **Min (Joueur B, rouge)**, joué sur un plateau linéaire de taille configurable.
+The **±123D** game is a two-player board game, generally referred to as **Max (Player A, blue)** and **Min (Player B, red)**, played on a linear board of configurable size.
 
-### 1. Le Plateau et l'Objectif
+### 1. The Board and Objective
 
-* **Plateau** : Séquence de cases numérotées, de `0` à `N-1`.
-* **Positions** : Les joueurs commencent à la case 0.
-* **Drapeau** : Au début du jeu, le drapeau se trouve à la dernière case, le joueur qui le ramène à la case 0 gagne la partie
-* **Cases Brûlées** : Les cases quittées par un joueur sont marquées comme "brûlées et deviennent inaccessibles.
+* **Board**: A sequence of numbered cells, from `0` to `N-1`.
+* **Positions**: Players start at cell 0.
+* **Flag**: At the start of the game, the flag is located at the last cell; the player who brings it back to cell 0 wins the game.
+* **Burnt Cells**: Cells left by a player are marked as "burnt" and become inaccessible.
 
-* **Objectif** : Atteindre et déplacer le drapeau à la case 0, ou forcer l'adversaire à ne plus pouvoir effectuer de coup valide.
+* **Objective**: Reach and move the flag to cell 0, or force the opponent into a situation where they cannot make a valid move.
 
-### 2. Le Déroulement du Tour
-
-Les joueurs jouent à tour de rôle (Max commence). À son tour, un joueur doit effectuer **une seule** des deux actions suivantes :
-
-#### A. Action de Mouvement (Déplacement)
-
-Le joueur se déplace de sa position actuelle vers une nouvelle case.
-
-* **Déplacements Permis** : **±1, ±2 ou ±3** cases.
-* **Conditions** :
-    1.  La nouvelle position doit être **dans les limites du plateau**.
-    2.  La nouvelle position ne doit **pas être une case brûlée** (`x`).
-* **Conséquence** : La case que le joueur vient de **quitter** est marquée comme **brûlée** (`x`).
-
-#### B. Action de Déplacement du Drapeau (Action "D")
-
-Le joueur peut déplacer le drapeau vers une case libre à une distance de **±D**, où **D > 3** (ex: +4, -5, +9, etc.).
-
-* **Conditions** :
-    1.  La nouvelle position du drapeau doit être **dans les limites du plateau**.
-    2.  La nouvelle position ne doit **pas être une case brûlée** (`x`).
-    3.  La nouvelle position doit **être différente de la position des deux joueurs**.
-* **Conséquence** :
-    1.  La case que le joueur vient de **quitter** est marquée comme **brûlée** (`x`).
-    2.  Le drapeau est déplacé à la nouvelle position.
-
-### 3. Conditions de Fin de Partie
-
-* **Victoire par Mouvement du Drapeau :** Un joueur atteint la case du drapeau et le déplace avec succès à la case 0 lors de son tour. Ce joueur **gagne immédiatement**.
-* **Victoire par Blocage :** Un joueur ne peut effectuer **aucune** action valide (mouvement ou déplacement du drapeau). Ce joueur **perd la partie**, et l'adversaire gagne.
+  <img width="1298" height="196" alt="Capture d’écran du 2025-11-22 19-38-57" src="https://github.com/user-attachments/assets/9fa87646-b964-440b-9410-0a0b30ef0f25" />
 
 
-## 🚀 Fonctionnalités
+### 2. Turn Sequence
 
-* **Interface Graphique (GUI)** : Permet de jouer avec une interface visuelle conviviale.
-* **Mode Console** : Permet de jouer directement via la ligne de commande.
-* **Multiples Types de Joueurs** :
-    * **Manuel (Humain)** : Joueur interagissant via la GUI ou la Console.
-    * **Aléatoire (`JoueurAleatoire`)** : Joueur effectuant des mouvements valides au hasard.
-    * **Artificiel (IA - `JoueurArtificiel`)** : Implémentation d'une intelligence artificielle basée sur l'algorithme **Minimax avec élagage Alpha-Beta** pour un jeu optimal (voir code source pour les auteurs de l'IA).
-    * **Interfaces Externes** : Supporte des joueurs externes via ligne de commande (`JoueurInterfaceCmd`) ou socket (`JoueurInterfaceSocket`), permettant d'utiliser une IA développée dans un autre langage.
+Players take turns playing (Max starts). On their turn, a player must perform **only one** of the following two actions:
 
-## ⚙️ Structure du Projet
+#### A. Movement Action
 
-Le projet est principalement constitué de fichiers Java :
+The player moves from their current position to a new cell.
 
-| Fichier | Description |
+* **Allowed Moves**: **±1, ±2, or ±3** cells.
+* **Conditions**:
+    1.  The new position must be **within the board limits**.
+    2.  The new position must **not be a burnt cell** (`x`).
+* **Consequence**: The cell the player just **left** is marked as **burnt** (`x`).
+
+#### B. Flag Movement Action (Action "D")
+
+The player can move the flag to a free cell at a distance of **±D**, where **D > 3** (e.g., +4, -5, +9, etc.).
+
+* **Conditions**:
+    1.  The new position of the flag must be **within the board limits**.
+    2.  The new position must **not be a burnt cell** (`x`).
+    3.  The new position must **be different from both players' positions**.
+* **Consequence**:
+    1.  The cell the player just **left** is marked as **burnt** (`x`).
+    2.  The flag is moved to the new position.
+
+### 3. End Game Conditions
+
+* **Victory by Flag Movement:** A player reaches the flag's cell and successfully moves it to cell 0 during their turn. This player **wins immediately**.
+* **Victory by Blockage:** A player cannot perform **any** valid action (movement or flag displacement). This player **loses the game**, and the opponent wins.
+
+
+## 🚀 Features
+
+* **Graphical User Interface (GUI)**: Allows playing with a user-friendly visual interface.
+
+  <img width="1551" height="376" alt="image" src="https://github.com/user-attachments/assets/69ada9e8-40e8-497b-b8c2-333e90cf4735" />
+
+* **Console Mode**: Allows playing directly via the command line.
+* **Multiple Player Types**:
+    * **Manual (Human)**: Player interacting via the GUI or Console.
+    * **Random (`JoueurAleatoire`)**: Player making valid moves at random.
+    * **Artificial (AI - `JoueurArtificiel`)**: Implementation of an artificial intelligence based on the **Minimax algorithm with Alpha-Beta pruning** for optimal play (see source code for AI authors).
+    * **External Interfaces**: Supports external players via command line (`JoueurInterfaceCmd`) or socket (`JoueurInterfaceSocket`), allowing the use of an AI developed in another language.
+
+## ⚙️ Project Structure
+
+The project consists mainly of Java files:
+
+| File | Description |
 | :--- | :--- |
-| `Plateau.java` | Contient la logique principale du jeu, l'état du plateau, et la gestion des tours/actions. |
-| **`JeuGUI.java`** | Point d'entrée pour la version avec interface graphique (GUI). Implémente également le joueur humain pour la GUI. |
-| **`JeuConsole.java`** | Point d'entrée pour la version en ligne de commande. |
-| **`AfficheurPlateau.java`** | Composant Swing pour le rendu graphique du plateau de jeu. |
-| **`ConfigDialog.java`** | Dialogue de configuration pour choisir la taille du plateau et les types de joueurs A et B. |
-| **`ConfigJoueurPanel.java`**| Panneau de configuration pour un seul joueur (choix du type : Manuel, Aléatoire, IA, Externe). |
-| **`Joueur.java`** | Interface que tous les types de joueurs doivent implémenter. |
-| **`JoueurArtificiel.java`** | Implémentation de l'IA (Minimax Alpha-Beta). |
-| **`JoueurAleatoire.java`** | Implémentation d'un joueur effectuant des coups aléatoires. |
-| **`JoueurConsole.java`** | Implémentation du joueur pour l'interface console (lecture/écriture sur `stdin`/`stdout`). |
-| **`JoueurInterfaceCmd.java`**| Gère l'interface avec un joueur externe lancé comme un processus en ligne de commande. |
-| **`JoueurInterfaceSocket.java`**| Gère l'interface avec un joueur externe via une connexion réseau (socket). |
+| `Plateau.java` | Contains the main game logic, board state, and turn/action management. |
+| **`JeuGUI.java`** | Entry point for the GUI version. Also implements the human player for the GUI. |
+| **`JeuConsole.java`** | Entry point for the command line version. |
+| **`AfficheurPlateau.java`** | Swing component for the graphical rendering of the game board. |
+| **`ConfigDialog.java`** | Configuration dialog to choose board size and player types for A and B. |
+| **`ConfigJoueurPanel.java`**| Configuration panel for a single player (choice of type: Manual, Random, AI, External). |
+| **`Joueur.java`** | Interface that all player types must implement. |
+| **`JoueurArtificiel.java`** | AI implementation (Minimax Alpha-Beta). |
+| **`JoueurAleatoire.java`** | Implementation of a player making random moves. |
+| **`JoueurConsole.java`** | Player implementation for the console interface (read/write on `stdin`/`stdout`). |
+| **`JoueurInterfaceCmd.java`**| Manages the interface with an external player launched as a command line process. |
+| **`JoueurInterfaceSocket.java`**| Manages the interface with an external player via a network connection (socket). |
 
-## 🛠️ Compilation et Exécution
+## 🛠️ Compilation and Execution
 
-Ce projet est écrit en **Java**.
+This project is written in **Java**.
 
-### 1. Prérequis
+### 1. Prerequisites
 
-Assurez-vous d'avoir le **JDK (Java Development Kit)** installé sur votre machine.
+Ensure you have the **JDK (Java Development Kit)** installed on your machine.
 
 ### 2. Compilation
 
-Importer le projet localement puis éxécuter les commandes suivantes :
+Import the project locally and run the following commands:
 
 ```bash
 make
 make run
+
